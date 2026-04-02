@@ -1,0 +1,113 @@
+/* ══════════════════════════════════════════════════════════════
+   ANIMATIONS & KEYFRAMES
+   All animation definitions extracted from main stylesheet
+   ═════════════════════════════════════════════════════════════ */
+
+/* Boot sequence animations */
+@keyframes bootPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(0.97);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Floating sparkle animation */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg) scale(0.5);
+  }
+  20% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80vh) rotate(360deg) scale(1.2);
+  }
+}
+
+/* Header slide down animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text blink cursor animation */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Mascot wink animation */
+@keyframes wink {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.05);
+  }
+}
+
+/* Notification pulse animation */
+@keyframes notifPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Status bar dot pulse */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* Apply animations to elements */
+.boot-logo {
+  animation: bootPulse 1.8s ease-in-out infinite;
+}
+
+.sp {
+  animation: floatUp var(--dur) ease-in infinite;
+  animation-delay: var(--delay);
+}
+
+.header {
+  animation: slideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+.mascot-btn:hover .mascot-svg .eye {
+  animation: wink 0.5s ease;
+}
+
+.mascot-notif.show {
+  animation: notifPulse 1.5s infinite;
+}
+
+.sb-dot {
+  animation: pulse 2.5s infinite;
+}
